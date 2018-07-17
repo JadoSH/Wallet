@@ -6,7 +6,7 @@ class UserListPage extends Component {
 
     // the mount methods does not invoked when we use ssr .
     componentDidMount() {
-        this.props.fetchUsers();
+        //this.props.fetchUsers();
     }
 
     renderUsers() {

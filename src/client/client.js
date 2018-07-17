@@ -9,10 +9,15 @@ import {createStore, applyMiddleware} from 'redux';
 // applyMiddleware
 import thunk from 'redux-thunk';// to handle async actions creators .
 import {Provider} from 'react-redux';
+import axios from 'axios';
 import Routes from './Routes';
 import reducers from './reducers'
 
-const store = createStore(reducers, {}, applyMiddleware(thunk));
+const axiosInstance = axios.create({
+    baseUrl: '/api'
+});
+
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk.withExtraArgument(axiosInstance)));
 
 ReactDOM.hydrate(
     <Provider store={store}>

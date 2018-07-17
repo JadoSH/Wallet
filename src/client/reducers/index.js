@@ -5,8 +5,10 @@ and boil it all down (‘reduce’ it) to the new state
 
 import {combineReducers} from 'redux';
 import userReducer from './usersReducer';
+import authReducer from './authReducer';
 
 //Each domain reducer is combined using the combineReducers method.
 export default combineReducers({
-    users:userReducer
+    users: userReducer,
+    auth: authReducer
 });
